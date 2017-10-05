@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Hello Spring</string>
+    <string name="id_label">The Id is </string>
+    <string name="id_value">[id]</string>
+    <string name="content_label">The Status is </string>
+    <string name="content_value">[status]</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="btn_label">Check Awera Service</string>
+</resources>
