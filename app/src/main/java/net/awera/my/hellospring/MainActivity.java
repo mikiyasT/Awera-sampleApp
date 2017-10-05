@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addListenerOnServiceButton();
-        //addListnerOnSendButton();
     }
 
     private void addListenerOnServiceButton() {
@@ -52,14 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 AweraStatus aweraStatus = restTemplate.getForObject(URL_AWERA_GET, AweraStatus.class);
                 return aweraStatus;
 
-                /*HttpHeaders headers = new HttpHeaders();
-                headers.setContentType(MediaType.APPLICATION_JSON);
-                MultiValueMap<String,String> headers = new LinkedMultiValueMap<String,String>();
-                headers.add("Content-Type","application/json");
-                AweraMessage message = new AweraMessage("","+16414513138", "23847297502", "luv u");
-                HttpEntity<AweraMessage> entity = new HttpEntity<AweraMessage>(message, headers);
-                ResponseEntity<String> response = restTemplate.postForEntity(URL_AWERA_POST,entity,String.class);
-                return null;*/
             } catch (Exception e) {
                 //Log.e("MainActivity", e.getMessage(), e);
                 Log.d("MainActivity", e.getMessage(), e);
@@ -74,29 +65,4 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
-    /*private class SendMessageTask extends AsyncTask<Void,Void,AweraMessage> {
-        @Override
-        protected AweraMessage doInBackground(Void... params) {
-            try {
-                RestTemplate restTemplate = new RestTemplate();
-                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                AweraMessage message = new AweraMessage("+16414513138", "23847297502", "luv u");
-                AweraMessage aweraMessage = restTemplate.postForObject(URL_AWERA_POST,message,AweraMessage.class);
-                //AweraMessage aweraMessage = restTemplate.getForObject(URL_AWERA_GET, AweraMessage.class);
-                return aweraMessage;
-            } catch (Exception e) {
-                Log.e("MainActivity", e.getMessage(), e);
-            }
-
-            return null;
-        }
-        @Override
-        protected void onPostExecute(AweraStatus aweraStatus) {
-            TextView statusIdText = (TextView) findViewById(R.id.content_value);
-            statusIdText.setText(aweraStatus.getAweraStatus());
-
-        }
-    }*/
 }
